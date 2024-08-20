@@ -16,14 +16,27 @@ export class UserComponent implements OnInit {
     //   console.log(data);
     //   this.userService.getTxn().subscribe((data) => console.log(data));
     // });
-
     // forkJoin([
     //   this.userService.getUsers1(),
     //   this.userService.getTxn(),
     // ]).subscribe((data) => console.log(data));
-
     // this.userService.getUsers().subscribe((data) => console.log(data));
-    this.userService.getBooks().subscribe((data) => console.log(data));
+    // this.userService.getBooks().subscribe((data) => console.log(data));
+    // this.userService.subject.next(100);
+    // this.userService.subject.subscribe((data) => console.log(data));
+    // this.userService.subject.next(5);
+    // this.userService.behavior.subscribe((d) => console.log(d));
+    // this.userService.behavior.next('heather');
+    // this.userService.behavior.next('jose');
+    // this.userService.behavior.next('mark');
+
+    this.userService.replay.next('order1');
+    this.userService.replay.next('order2'); // dynamic
+    this.userService.replay.next('order3'); // dynamic
+    this.userService.replay.next('order4'); // dynamic
+    this.userService.replay.next('order5'); // dynamic
+    this.userService.replay.subscribe((d) => console.log(d));
+    this.userService.replay.next('order6'); // dynamic
   }
 
   createUser() {

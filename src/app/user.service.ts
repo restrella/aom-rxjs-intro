@@ -1,6 +1,16 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { map, Observable, of, subscribeOn, filter, tap } from 'rxjs';
+import { Injectable, OnInit } from '@angular/core';
+import {
+  map,
+  Observable,
+  of,
+  subscribeOn,
+  filter,
+  tap,
+  Subject,
+  BehaviorSubject,
+  ReplaySubject,
+} from 'rxjs';
 import { User } from './models/user';
 
 @Injectable({
@@ -8,6 +18,13 @@ import { User } from './models/user';
 })
 export class UserService {
   serverUrl = 'http://localhost:3000';
+
+  // subject
+  // behavior
+  // replay
+  subject = new Subject(); //
+  behavior = new BehaviorSubject('john');
+  replay = new ReplaySubject(3);
 
   constructor(private http: HttpClient) {}
 
